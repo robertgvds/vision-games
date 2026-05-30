@@ -1,12 +1,10 @@
-# Vision Games
-
-This repository contains a collection of classic games implemented in Python, where the controls are driven entirely by hand and face gestures captured via a webcam. The project leverages **OpenCV** for image processing, **MediaPipe** for real-time tracking, and **PySide6 (Qt for Python)** for the graphical user interface.
+This repository contains a collection of classic games implemented in Python, where the controls are driven entirely by hand gestures captured via a webcam. The project leverages **OpenCV** for image processing, **MediaPipe** for real-time hand tracking, and **PySide6 (Qt for Python)** for the graphical user interface.
 
 ## 👾 Games Included
 
-* **🍉 Fruit Ninja (`ninja_game.py`)**: Use your hand as a sword to slice falling fruits (apples, bananas, grapes, and watermelons) while avoiding bombs.
-* **✊✋✌️ Rock, Paper, Scissors (`rps_game.py`)**: Play a best-of-three match against the computer using hand gestures! Give a "thumbs up" (👍) to start a round, and then show Rock, Paper, or Scissors to the camera.
-* **🚀 Face Dodge Multiplayer (`face_game.py`)**: Control a spaceship using your nose to dodge falling obstacles like rocks and meteors. Open your mouth to activate a temporary shield! You can play solo or in a 2-player local co-op mode.
+* **Rock Paper Scissors (`rps_game.py`)**: Play the classic game against the computer using hand gestures.
+* **Ninja Game (`ninja_game.py`)**: Slice fruits appearing on the screen using hand tracking.
+* **Face Game (`face_game.py`)**: A dodging/interactive game using computer vision.
 
 ### Prerequisites
 
@@ -31,10 +29,10 @@ This repository contains a collection of classic games implemented in Python, wh
     # Or: python3.11 -m venv venv
     ```
 
-    *On Windows (using the `py` launcher):*
+    *On Windows:*
     ```bash
-    py -3.10 -m venv venv
-    # Or: py -3.11 -m venv venv
+    py -3.11 -m venv venv
+    # If 'py' is not recognized, use: python -m venv venv
     ```
 
     *Now, activate the environment:*
@@ -43,6 +41,7 @@ This repository contains a collection of classic games implemented in Python, wh
     ```bash
     .\venv\Scripts\activate
     ```
+    *(Note: If you encounter an "execution of scripts is disabled" error in PowerShell, run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` before activating).*
     
     *On macOS/Linux:*
     ```bash
@@ -51,21 +50,15 @@ This repository contains a collection of classic games implemented in Python, wh
 
 3.  **Install the dependencies:**
     
+    > **Important:** The project requires a specific version of MediaPipe (`0.10.21`) to maintain compatibility with the `mp.solutions` API used in the code.
+
     ```bash
-    pip install opencv-python mediapipe pyside6
+    pip install opencv-python mediapipe==0.10.21 pyside6
     ```
 
 4.  **Run the application:**
-
-    Make sure your virtual environment is activated, then run the script for the game you want to play:
-
+    
+    Choose one of the games and run its respective Python script. For example, to play Rock Paper Scissors:
     ```bash
-    # To play Fruit Ninja
-    python ninja_game.py
-
-    # To play Rock, Paper, Scissors
     python rps_game.py
-
-    # To play Face Dodge Multiplayer
-    python face_game.py
     ```
